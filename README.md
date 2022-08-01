@@ -1,5 +1,3 @@
-#Atividade 5 Compass
-
 #### Api de pedidos para compra em mercado. 
 
 **Desenvolvido com:**
@@ -21,3 +19,19 @@
 **JDK utilizada:** v11
 
 **Framework utilizado:** Spring Boot v2.7.1
+
+## Funcionalidades
+
+**Pegar pedidos:** -/api/pedido
+
+**Pegar pedidos com filtros:** -/api/pedido?cpf=111.111.111-11&sort=desc&page=0
+
+**Pegar pedidos por id:** -/api/pedido/{id}
+
+**Editar pedido:** -/api/pedido/{id}
+
+**Editar item:** -/api/item/{id}
+
+**Enviar pedido:** -/api/pedido
+
+**Apagar pedido:** -/api/pedido/{id}
