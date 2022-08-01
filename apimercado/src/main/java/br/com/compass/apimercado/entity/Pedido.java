@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
+
+import org.springframework.validation.annotation.Validated;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +26,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@Validated
 @Table(name = "pedido")
 public class Pedido {
     @Id
@@ -30,6 +34,7 @@ public class Pedido {
     private Long id;
     private String cpf;
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @Valid
     private List<Item> itens;
     private Double total;
 }

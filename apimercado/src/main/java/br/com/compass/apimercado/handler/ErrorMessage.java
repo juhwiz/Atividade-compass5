@@ -1,21 +1,22 @@
 package br.com.compass.apimercado.handler;
 
-import java.time.ZonedDateTime;
+import java.util.List;
 
-import org.springframework.http.HttpStatus;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Data;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorMessage {
-    private final String message;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime timestamp;
+    private String message;
+    private List<String> validationsErrors;
 
+    public ErrorMessage(List<String> validationsErrors) {
+        this.validationsErrors = validationsErrors;
+    }
 
-    public ErrorMessage(String message, HttpStatus httpStatus, ZonedDateTime timestamp) {
+    public ErrorMessage(String message) {
         this.message = message;
-        this.httpStatus = httpStatus;
-        this.timestamp = timestamp;
     }
 }

@@ -2,8 +2,10 @@ package br.com.compass.apimercado.dto.request;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import br.com.compass.apimercado.anotacoes.DataOferta;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,14 +18,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RequestOfertaDto {
-    @NotBlank
+    @NotNull @NotEmpty
     private String nome;
-    @NotBlank
+    @NotNull
     private Date dataDeCriacao;
-    @NotBlank
+    @NotNull @DataOferta
     private Date dataDeValidade;
-    @NotBlank
+    @NotNull
     private Double desconto;
-    @NotBlank
+    @NotNull @NotEmpty
     private String descricao;
 }

@@ -2,8 +2,13 @@ package br.com.compass.apimercado.dto.request;
 
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.validation.annotation.Validated;
+
+import br.com.compass.apimercado.anotacoes.Cpf;
 import br.com.compass.apimercado.entity.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,11 +21,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@Validated
 public class RequestPedidoDto {
-    @NotBlank
+    @NotNull @NotEmpty @Cpf
     private String cpf;
-    @NotBlank
+    @NotNull @Valid
     private List<Item> itens;
-    @NotBlank
+    @NotNull
     private Double total;
 }

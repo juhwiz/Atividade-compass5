@@ -1,6 +1,8 @@
 package br.com.compass.apimercado.service;
 
 import java.lang.reflect.Field;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -14,6 +16,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.validation.annotation.Validated;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import org.springframework.stereotype.Service;
 
 import br.com.compass.apimercado.dto.request.RequestPedidoDto;
@@ -23,6 +30,7 @@ import br.com.compass.apimercado.exception.PedidoNaoEncontradoException;
 import br.com.compass.apimercado.repository.PedidoRepository;
 
 @Service
+@Validated
 public class PedidoService {
     
     @Autowired
@@ -32,6 +40,19 @@ public class PedidoService {
     private ModelMapper modelMapper;
 
     public ResponsePedidoDto postPedido(@Valid RequestPedidoDto request){
+        // String json = new Gson().toJson(request);
+        // JsonObject data = new Gson().fromJson(json, JsonObject.class);
+
+        // Timestamp stamp = new Timestamp(data.get("dataDeCriacao").getAsLong());
+        // Date dataCriacao = new Date(stamp.getTime());
+
+        // Timestamp stamp2 = new Timestamp(data.get("dataDeValidade").getAsLong());
+        // Date dataValidade = new Date(stamp2.getTime());
+        
+        // if(dataCriacao.after(dataValidade) ){
+        //     throw new PedidoNaoEncontradoException("Data de criacao da oferta nao pode ser posterior a data de validade");
+        // }
+
         Pedido pedido = modelMapper.map(request, Pedido.class);
         Pedido pedidoSalvo = pedidoRepository.save(pedido);
         return modelMapper.map(pedidoSalvo, ResponsePedidoDto.class);
