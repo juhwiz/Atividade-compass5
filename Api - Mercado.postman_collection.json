@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "b7c0ab87-0f82-4128-86ee-e9278007d4d3",
+		"name": "Api - Mercado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21729158"
+	},
+	"item": [
+		{
+			"name": "GetAll - Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedido"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "438.254.138-71",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "desc",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById - Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedido/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedido",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch - Pedido por id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\" : \"438.254.138-81\",\r\n    \"total\": 20.59\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pedido/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedido",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch - Item por id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Nesquik\",\r\n    \"valor\": 8.39,\r\n    \"descricao\": \"Nesquik lt 380g\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/item/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"item",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post - Pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"438.254.138-70\",\r\n    \"itens\": [\r\n        {\r\n            \"nome\": \"Nescau\",\r\n            \"dataDeCriacao\": \"01/10/2022 00:00:00\",\r\n            \"dataDeValidade\": \"01/10/2022 00:00:00\",\r\n            \"valor\": \"8.59\",\r\n            \"descricao\": \"Achoc nescau lt 380g\",\r\n            \"ofertas\": [\r\n                {\r\n                    \"nome\": \"clubefato\",\r\n                    \"dataDeCriacao\": \"01/10/2022 00:00:00\",\r\n                    \"dataDeValidade\": \"01/10/2022 00:00:00\",\r\n                    \"desconto\": \"1.05\",\r\n                    \"descricao\": \"aniversario muffato\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"total\": \"8.59\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Pedido por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/pedido/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pedido",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
