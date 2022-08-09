@@ -20,7 +20,7 @@
 
 **Framework utilizado:** Spring Boot v2.7.1
 
-## Funcionalidades
+## End-Points
 
 **Pegar pedidos:** -/api/pedido
 
